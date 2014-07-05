@@ -78,6 +78,10 @@
             '17173_Live': {
                 'player': refD + '17173_Player_stream.swf',
                 're': /http:\/\/f\.v\.17173cdn\.com\/(\d+)\/flash\/Player_stream\.swf/i
+            },
+            '17173_out': {
+                'player': refD + '17173_Player_file_out.swf',
+                're': /http:\/\/f\.v\.17173cdn\.com\/flash\/Player_file_out\.swf/i
             }
         },
         os: Cc['@mozilla.org/observer-service;1']
