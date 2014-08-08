@@ -33,7 +33,7 @@
                 'player0': refD + 'iqiyi_out.swf',
                 'player1': refD + 'iqiyi5.swf',
                 'player2': refD + 'iqiyi.swf',
-                're': /http:\/\/www\.iqiyi\.com\/player\/\d+\/player\.swf/i
+                're': /http:\/\/www\.iqiyi\.com\/(player\/\d+\/Player|common\/flashplayer\/\d+\/MainPlayer_.*)\.swf/i
             },
             'tudou': {
                 'player': refD + 'tudou.swf',
