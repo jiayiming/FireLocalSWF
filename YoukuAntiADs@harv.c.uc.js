@@ -5,7 +5,9 @@
 // @include         chrome://browser/content/browser.xul
 // @author          harv.c
 // @homepage        http://haoutil.tk
-// @version         1.6.0
+// @version         1.6.1
+// @updateUrl       https://j.mozest.com/zh-CN/ucscript/script/92.meta.js
+// @downloadUrl     https://j.mozest.com/zh-CN/ucscript/script/92.uc.js
 // ==/UserScript==
 (function() {
     // YoukuAntiADs, request observer
@@ -34,6 +36,10 @@
                 'player1': refD + 'iqiyi5.swf',
                 'player2': refD + 'iqiyi.swf',
                 're': /http:\/\/www\.iqiyi\.com\/(player\/\d+\/Player|common\/flashplayer\/\d+\/MainPlayer_.*)\.swf/i
+            },
+            'iqiyip2p': {
+                'player': 'http://www.iqiyi.com/player/20140709110406/20088.swf',
+                're': /http:\/\/www\.iqiyi\.com\/common\/flashplayer\/\d+\/\d[a-z0-9]*.swf/i
             },
             'tudou': {
                 'player': refD + 'tudou.swf',
@@ -170,7 +176,7 @@
 
             var aVisitor = new HttpHeaderVisitor();
             http.visitResponseHeaders(aVisitor);
-            if (!aVisitor.isFalsh()) return;
+            if (!aVisitor.isFlash()) return;
 
             for(var i in this.SITES) {
                 var site = this.SITES[i];
@@ -241,7 +247,7 @@
                 }
             }
         },
-        isFalsh: function() {
+        isFlash: function() {
             return this._isFlash;
         }
     };
