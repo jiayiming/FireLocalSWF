@@ -88,6 +88,10 @@
             '17173_out': {
                 'player': refD + '17173_Player_file_out.swf',
                 're': /http:\/\/f\.v\.17173cdn\.com\/flash\/Player_file_out\.swf/i
+            },
+            'duowan': {
+                'player': 'http://yuntv.letv.com/bcloud.swf',
+                're': /http:\/\/assets\.dwstatic\.com\/.*\/vppp\.swf/i,
             }
         },
         os: Cc['@mozilla.org/observer-service;1']
