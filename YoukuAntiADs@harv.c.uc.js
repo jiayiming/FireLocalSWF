@@ -39,7 +39,7 @@
             },
             'iqiyip2p': {
                 'player': 'http://www.iqiyi.com/player/20140709110406/20088.swf',
-                're': /http:\/\/www\.iqiyi\.com\/common\/flashplayer\/\d+\/\d[a-z0-9]*.swf/i
+                're': /https?:\/\/www\.iqiyi\.com\/common\/flashplayer\/\d+\/\d[a-z0-9]*.swf/i
             },
             'tudou': {
                 'player': refD + 'tudou.swf',
@@ -87,7 +87,7 @@
             },
             '17173_out': {
                 'player': refD + '17173_Player_file_out.swf',
-                're': /http:\/\/f\.v\.17173cdn\.com\/flash\/Player_file_out\.swf/i
+                're': /http:\/\/f\.v\.17173cdn\.com\/(\d+)\/flash\/Player_file_out\.swf/i
             },
             'duowan': {
                 'player': 'http://yuntv.letv.com/bcloud.swf',
