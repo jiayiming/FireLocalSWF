@@ -71,7 +71,11 @@
             },
             'sohu': {
                 'player': refD + 'sohu.swf',
-                're': /http:\/\/tv\.sohu\.com\/upload\/swf(\/p2p(\/yc)?)?\/\d+\/(main|playershell)\.swf/i
+                're': /http:\/\/tv\.sohu\.com\/upload\/swf\/(?!(live|\d+)).*\d+\/(main|PlayerShell)\.swf/i
+            },
+            'sohu_live': {
+                'player': refD + 'sohu_live.swf',
+                're': /http:\/\/tv\.sohu\.com\/upload\/swf\/(live\/|)\d+\/(main|PlayerShell)\.swf/i
             },
             'pps': {
                 'player': refD + 'pps.swf',
