@@ -37,10 +37,6 @@
                 'player2': refD + 'iqiyi.swf',
                 're': /https?:\/\/www\.iqiyi\.com\/(player\/\d+\/Player|common\/flashplayer\/\d+\/(Main|Coop)?Player_?.*)\.swf/i
             },
-            'iqiyip2p': {
-                'player': 'http://www.iqiyi.com/player/20140709110406/20088.swf',
-                're': /https?:\/\/www\.iqiyi\.com\/common\/flashplayer\/\d+\/\d[a-z0-9]*.swf/i
-            },
             'tudou': {
                 'player': refD + 'tudou.swf',
                 're': /http:\/\/js\.tudouui\.com\/.*portalplayer[^\.]*\.swf/i
