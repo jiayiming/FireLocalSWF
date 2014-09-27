@@ -51,7 +51,7 @@
             },
             'letv': {
                 'player': refD + 'letv.swf',
-                're': /http:\/\/.*letv[\w]*\.com\/.*\/((?!(Live|seed))((C|S)[\w]{2,3})?(?!Live)[\w]{4}|swf)Player*\.swf/i
+                're': /http:\/\/.*letv[\w]*\.com\/(hz|.*\/((?!(Live|seed|Disk))((C|S)[\w]{2,3})?(?!Live)[\w]{4}|swf))Player*\.swf/i
             },
             'letvskin': {
                 'player': 'http://player.letvcdn.com/p/201407/24/15/newplayer/1/SSLetvPlayer.swf',
