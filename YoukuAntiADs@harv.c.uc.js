@@ -74,8 +74,8 @@
                 're': /http:\/\/tv\.sohu\.com\/upload\/swf\/(live\/|)\d+\/(main|PlayerShell)\.swf/i
             },
             'pps': {
-                'player': refD + 'pps.swf',
-                're': /http:\/\/www\.iqiyi\.com\/player\/cupid\/.*\/pps[\w]+.swf/i
+                'player': refD + 'iqiyi_out.swf',
+                're': /https?:\/\/www\.iqiyi\.com\/common\/.*\/pps[\w]+.swf/i
             },
             '17173': {
                 'player': refD + '17173_Player_file.swf',
