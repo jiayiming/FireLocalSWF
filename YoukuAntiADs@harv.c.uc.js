@@ -51,18 +51,22 @@
             },
             'letv': {
                 'player': refD + 'letv.swf',
-                're': /http:\/\/.*letv[\w]*\.com\/(hz|.*\/((?!(Live|seed|Disk))((C|S)[\w]{2,3})?(?!Live)[\w]{4}|swf))Player*\.swf/i
+                're': /http:\/\/.*\.letv(cdn)?\.com\/.*(new)?player\/((SDK)?Letv|swf)Player\.swf/i
             },
             'letvskin': {
                 'player': 'http://player.letvcdn.com/p/201407/24/15/newplayer/1/SSLetvPlayer.swf',
                 're': /http:\/\/.*letv[\w]*\.com\/p\/\d+\/\d+\/(?!15)\d*\/newplayer\/\d+\/S?SLetvPlayer\.swf/i
             },
-            'pplive': {
-                'player': refD + 'pplive.swf',
+            'letv_live': {
+                'player': refD + 'letv.in.Live.swf',
+                're': /http:\/\/.*letv[\w]*\.com\/p\/\d+\/\d+\/\d+\/newplayer\/LivePlayer\.swf/i
+            },
+            'pptv': {
+                'player': refD + 'pptv.in.Ikan.swf',
                 're': /http:\/\/player\.pplive\.cn\/ikan\/.*\/player4player2\.swf/i
             },
-            'pplive_live': {
-                'player': refD + 'pplive_live.swf',
+            'pptv_live': {
+                'player': refD + 'pptv.in.Live.swf',
                 're': /http:\/\/player\.pplive\.cn\/live\/.*\/player4live2\.swf/i
             },
             'sohu': {
@@ -74,23 +78,23 @@
                 're': /http:\/\/tv\.sohu\.com\/upload\/swf\/(live\/|)\d+\/(main|PlayerShell)\.swf/i
             },
             'pps': {
-                'player': refD + 'iqiyi_out.swf',
+                'player': refD + 'iqiyi.swf',
                 're': /https?:\/\/www\.iqiyi\.com\/common\/.*\/pps[\w]+.swf/i
             },
             '17173': {
-                'player': refD + '17173_Player_file.swf',
+                'player': refD + '17173.in.Vod.swf',
                 're': /http:\/\/f\.v\.17173cdn\.com\/(\d+)\/flash\/Player_file\.swf/i
             },
             '17173_Live': {
-                'player': refD + '17173_Player_stream.swf',
-                're': /http:\/\/f\.v\.17173cdn\.com\/(\d+)\/flash\/Player_stream\.swf/i
+                'player': refD + '17173.in.Live.swf',
+                're': /http:\/\/f\.v\.17173cdn\.com\/(\d+)\/flash\/(Player_stream|Player_stream_firstpage)\.swf/i
             },
             '17173_out': {
-                'player': refD + '17173_Player_file_out.swf',
-                're': /http:\/\/f\.v\.17173cdn\.com\/(\d+)\/flash\/Player_file_out\.swf/i
+                'player': refD + '17173.out.Vod.swf',
+                're': /http:\/\/f\.v\.17173cdn\.com\/(\d+)\/flash\/(Player_file_out|Player_file_customOut)\.swf/i
             },
             '17173_Live_out': {
-                'player': refD + '17173_Player_stream_out.swf',
+                'player': refD + '17173.out.Live.swf',
                 're': /http:\/\/f\.v\.17173cdn\.com\/(\d+)\/flash\/Player_stream_customOut\.swf/i
             },
             'duowan': {
