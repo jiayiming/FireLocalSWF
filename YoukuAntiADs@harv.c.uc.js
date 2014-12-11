@@ -71,7 +71,7 @@
             },
             'sohu': {
                 'player': refD + 'sohu.swf',
-                're': /http:\/\/tv\.sohu\.com\/upload\/swf\/(?!(live|\d+)).*\d+\/(main|PlayerShell)\.swf/i
+                're': /http:\/\/tv\.sohu\.com\/upload\/swf\/(?!(live|\d+|ap)).*\d+\/(main|PlayerShell)\.swf/i 
             },
             'sohu_live': {
                 'player': refD + 'sohu_live.swf',
@@ -99,7 +99,7 @@
             },
             'duowan': {
                 'player': 'http://yuntv.letv.com/bcloud.swf',
-                're': /http:\/\/assets\.dwstatic\.com\/.*\/vppp\.swf/i,
+                're': /http:\/\/assets\.dwstatic\.com\/.*\/vppp\.swf/i
             }
         },
         os: Cc['@mozilla.org/observer-service;1']
