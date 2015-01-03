@@ -69,13 +69,9 @@
                 'player': refD + 'pptv.in.Live.swf',
                 're': /http:\/\/player\.pplive\.cn\/live\/.*\/player4live2\.swf/i
             },
-            'sohu': {
-                'player': refD + 'sohu.swf',
-                're': /http:\/\/tv\.sohu\.com\/upload\/swf\/(?!(live|\d+|ap)).*\d+\/(main|PlayerShell)\.swf/i 
-            },
             'sohu_live': {
                 'player': refD + 'sohu_live.swf',
-                're': /http:\/\/tv\.sohu\.com\/upload\/swf\/(live\/|)\d+\/(main|PlayerShell)\.swf/i
+                're': /http:\/\/(tv\.sohu\.com\/upload\/swf\/(p2p\/)?\d+|(\d+\.){3}\d+\/webplayer)\/Main\.swf/i
             },
             'pps': {
                 'player': refD + 'iqiyi.swf',
