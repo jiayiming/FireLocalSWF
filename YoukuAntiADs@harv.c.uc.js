@@ -66,7 +66,7 @@
                 're': /http:\/\/.*letv[\w]*\.com\/p\/\d+\/\d+\/\d+\/newplayer\/LivePlayer\.swf/i
             },
             'pptv': {
-                'player': refD + 'pptv.in.Ikan.swf',
+                'player': refD + 'pptv.swf',
                 're': /http:\/\/player\.pplive\.cn\/ikan\/.*\/player4player2\.swf/i
             },
             'pptv_live': {
