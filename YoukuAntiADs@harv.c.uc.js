@@ -96,10 +96,6 @@
             '17173_Live_out': {
                 'player': refD + '17173.out.Live.swf',
                 're': /http:\/\/f\.v\.17173cdn\.com\/(\d+)\/flash\/Player_stream_customOut\.swf/i
-            },
-            'duowan': {
-                'player': 'http://yuntv.letv.com/bcloud.swf',
-                're': /http:\/\/assets\.dwstatic\.com\/.*\/vppp\.swf/i
             }
         },
         os: Cc['@mozilla.org/observer-service;1']
