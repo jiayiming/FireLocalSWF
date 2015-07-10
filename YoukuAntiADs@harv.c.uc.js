@@ -31,7 +31,7 @@
                 'player': refD + 'ku6_out.swf',
                 're': /http:\/\/player\.ku6cdn\.com\/default\/out\/\d{12}\/player\.swf/i
             },
-            'iqiyi': {
+/*            'iqiyi': {
                 'player0': refD + 'iqiyi_out.swf',
                 'player1': refD + 'iqiyi5.swf',
                 'player2': refD + 'iqiyi.swf',
@@ -40,7 +40,7 @@
             'iqiy_out': {
                 'player': refD + 'iqiyi_out.swf',
                 're': /https?:\/\/www\.iqiyi\.com\/common\/flashplayer\/\d+\/SharePlayer_.*\.swf/i
-            },
+            },*/
             'tudou': {
                 'player': refD + 'tudou.swf',
                 're': /http:\/\/js\.tudouui\.com\/.*portalplayer[^\.]*\.swf/i
