@@ -11,4 +11,4 @@ UC脚本修改自cinhoo，SWF播放器采用15536900@kafan的，PPTV_live/17173/
 
 感谢 cinhoo,15536900,catcat520
 
-Git@OSC地址：http://git.oschina.net/jnzk/FireLocalSWF
+Git@OSC地址：https://git.oschina.net/jnzk/FireLocalSWF
