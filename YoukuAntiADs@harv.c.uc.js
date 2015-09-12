@@ -63,7 +63,7 @@
             },
             'letv_live': {
                 'player': refD + 'letv.in.Live.swf',
-                're': /http:\/\/.*letv[\w]*\.com\/p\/\d+\/\d+\/\d+\/newplayer\/LivePlayer\.swf/i
+                're': /http\:\/\/player\.letvcdn\.com\/.*p\/\d+\/\d+\/\d+\/\d+\/\d+\/newplayer\/LivePlayer\.swf/i
             },
             'pptv': {
                 'player': refD + 'pptv.swf',
@@ -83,7 +83,7 @@
             },
             '17173': {
                 'player': refD + '17173.in.Vod.swf',
-                're': /http:\/\/f\.v\.17173cdn\.com\/(\d+)\/flash\/Player_file\.swf/i
+                're': /http:\/\/f\.v\.17173cdn\.com\/(\d+)\/flash\/Player_(file|seo_[^\.]+)\.swf/i
             },
             '17173_Live': {
                 'player': refD + '17173.in.Live.swf',
