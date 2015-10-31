@@ -57,9 +57,9 @@
                 'player': refD + 'letv.swf',
                 're': /http:\/\/.*\.letv(cdn)?\.com\/.*(new)?player\/((SDK)?Letv|swf)Player\.swf/i
             },
-            'letvskin': {
-                'player': 'http://player.letvcdn.com/p/201407/24/15/newplayer/1/SSLetvPlayer.swf',
-                're': /http:\/\/.*letv[\w]*\.com\/p\/\d+\/\d+\/(?!15)\d*\/newplayer\/\d+\/S?SLetvPlayer\.swf/i
+            'letvpccs': {
+                'player': 'http://www.letv.com/cmsdata/playerapi/pccs_sdk_20141113.xml',
+                're': /http:\/\/www.letv.com\/.*\/playerapi\/pccs_(?!(.*live|sdk)).*_?(\d+)\.xml/i
             },
             'letv_live': {
                 'player': refD + 'letv.in.Live.swf',
