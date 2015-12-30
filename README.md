@@ -1,6 +1,8 @@
 FireLoaclSWF
 ============
 
+注意！！！：目前，注意是目前，我有打算准备放弃打包所有播放器成swf.rar的方式更新，如果有人批处理中直接引用此rar地址来更新的人可能需要有所更改。如果1-2个月后没人提出问题的话可能就这样做了。。。
+
 我修改过的UC版本地视频网站播放器（Firefox专用）打包版，请解压swf.rar到Profiles\chrome\后食用。
 
 支持的网站：youku ku6 iqiyi tudou letv pptv sohu pps 17173。
