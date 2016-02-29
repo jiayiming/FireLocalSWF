@@ -35,7 +35,7 @@
                 'player0': refD + 'iqiyi_out.swf',
                 'player1': refD + 'iqiyi5.swf',
                 'player2': refD + 'iqiyi.swf',
-                're': /https?:\/\/www\.iqiyi\.com\/(player\/\d+\/Player|common\/flashplayer\/\d+\/(Main|Coop|Share|Enjoy)?Player_?.+)\.swf/i
+                're': /https?:\/\/www\.iqiyi\.com\/(player\/\d+\/Player|common\/flashplayer\/\d+\/(Main|Coop|Share|Enjoy)?(Player_[^\.]+|[^\/]+c2359))\.swf/i
             },
             'iqiy_out': {
                 'player': refD + 'iqiyi_out.swf',
