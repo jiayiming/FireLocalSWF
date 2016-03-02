@@ -58,8 +58,8 @@
                 're': /http:\/\/.*\.letv(cdn)?\.com\/.*(new)?player\/((SDK)?Letv|swf)Player\.swf/i
             },
             'letvpccs': {
-                'player': 'http://www.letv.com/cmsdata/playerapi/pccs_sdk_20141113.xml',
-                're': /http:\/\/www.letv.com\/.*\/playerapi\/pccs_(?!(.*live|sdk)).*_?(\d+)\.xml/i
+                'player': 'http://www.le.com/cmsdata/playerapi/pccs_sdk_20141113.xml',
+                're': /http:\/\/www\.le(tv)?\.com\/.*\/playerapi\/pccs_(?!(.*live|sdk)).*_?(\d+)\.xml/i
             },
             'letv_live': {
                 'player': refD + 'letv.in.Live.swf',
@@ -82,7 +82,7 @@
                 're': /https?:\/\/www\.iqiyi\.com\/common\/.*\/pps[\w]+.swf/i
             },
             '17173': {
-                'player': refD + '17173.in.Vod.swf',
+                'player': refD + '17173.in.player.swf',
                 're': /http:\/\/f\.v\.17173cdn\.com\/(\d+)\/flash\/Player_(file|seo_[^\.]+)\.swf/i
             },
             '17173_Live': {
@@ -90,7 +90,7 @@
                 're': /http:\/\/f\.v\.17173cdn\.com\/(\d+)\/flash\/(Player_stream|Player_stream_firstpage)\.swf/i
             },
             '17173_out': {
-                'player': refD + '17173.out.Vod.swf',
+                'player': refD + '17173.out.player.swf',
                 're': /http:\/\/f\.v\.17173cdn\.com\/(\d+)\/flash\/(Player_file_out|Player_file_customOut)\.swf/i
             },
             '17173_Live_out': {
