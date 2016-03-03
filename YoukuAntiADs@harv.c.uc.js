@@ -98,6 +98,12 @@
                 're': /http:\/\/f\.v\.17173cdn\.com\/(\d+)\/flash\/Player_stream_customOut\.swf/i
             }
         },
+		REFRULES: {
+			'iqiyi': {
+				're': 'http://www.iqiyi.com/',
+				'find': /.*\.qiyi\.com/i
+			}
+		},
         os: Cc['@mozilla.org/observer-service;1']
                 .getService(Ci.nsIObserverService),
         init: function() {
@@ -178,14 +184,26 @@
             return null;
         },
         observe: function(aSubject, aTopic, aData) {
+
+			if (aTopic == "http-on-modify-request") {
+				var httpChannel = aSubject.QueryInterface(Ci.nsIHttpChannel);
+				for(var i in this.REFRULES) {
+					var rule = this.REFRULES[i];
+					try {
+						var URL = httpChannel.originalURI.spec;
+						if(rule['find'].test(URL)) {
+							httpChannel.referrer = Components.classes["@mozilla.org/network/io-service;1"].getService(Components.interfaces.nsIIOService).newURI(rule['re'], null, null);
+							httpChannel.setRequestHeader('Referer', rule['re'], false);
+						}
+					}
+					catch(e) {}
+				}
+				return;
+			}
+
             if(aTopic != 'http-on-examine-response') return;
 
             var http = aSubject.QueryInterface(Ci.nsIHttpChannel);
-
-            var aVisitor = new HttpHeaderVisitor();
-            http.visitResponseHeaders(aVisitor);
-            if (!aVisitor.isFlash()) return;
-
             for(var i in this.SITES) {
                 var site = this.SITES[i];
                 if(site['re'].test(http.URI.spec)) {
@@ -221,9 +239,11 @@
         register: function() {
             this.init();
             this.os.addObserver(this, 'http-on-examine-response', false);
+            this.os.addObserver(this, 'http-on-modify-request', false);
         },
         unregister: function() {
             this.os.removeObserver(this, 'http-on-examine-response', false);
+            this.os.removeObserver(this, 'http-on-modify-request', false);
         }
     };
 
@@ -241,22 +261,6 @@
         },
         onDataAvailable: function(request, context) {
             this.originalListener.onDataAvailable(request, context, this.site['storageStream'].newInputStream(0), 0, this.site['count']);
-        }
-    };
-
-    function HttpHeaderVisitor() {
-        this._isFlash = false;
-    }
-    HttpHeaderVisitor.prototype = {
-        visitHeader: function(aHeader, aValue) {
-            if (aHeader.indexOf("Content-Type") !== -1) {
-                if (aValue.indexOf("application/x-shockwave-flash") !== -1) {
-                    this._isFlash = true;
-                }
-            }
-        },
-        isFlash: function() {
-            return this._isFlash;
         }
     };
 
