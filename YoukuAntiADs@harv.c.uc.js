@@ -98,12 +98,12 @@
                 're': /http:\/\/f\.v\.17173cdn\.com\/(\d+)\/flash\/Player_stream_customOut\.swf/i
             }
         },
-		REFRULES: {
-			'iqiyi': {
-				're': 'http://www.iqiyi.com/',
-				'find': /.*\.qiyi\.com/i
-			}
-		},
+        REFRULES: {
+            'iqiyi': {
+                're': 'http://www.iqiyi.com/',
+                'find': /.*\.qiyi\.com/i
+            }
+        },
         os: Cc['@mozilla.org/observer-service;1']
                 .getService(Ci.nsIObserverService),
         init: function() {
