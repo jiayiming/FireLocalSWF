@@ -15,17 +15,19 @@
     var refD = 'file:///' + Components.classes['@mozilla.org/file/directory_service;1'].getService(Components.interfaces.nsIProperties).get("ProfD", Components.interfaces.nsILocalFile).path + '/chrome/swf/';
     YoukuAntiADs.prototype = {
         SITES: {
-            'youku_loader': {
-                'player': refD + 'loader.swf',
-                're': /http:\/\/static\.youku\.com(\/v[\d\.]+)?\/v\/swf\/loaders?\.swf/i
+            'youkuloader': {
+                'player0': refD + 'loader.swf',
+                'player1': refD + 'oloader.swf',
+                're': /http:\/\/static\.youku\.com(\/v[\d\.]*)?\/v\/swf\/loaders?\.swf/i
             },
-            'youku_player': {
-                'player': refD + 'player.swf',
-                're': /http:\/\/static\.youku\.com(\/v[\d\.]+)?\/v\/swf\/q?player[^\.]*\.swf/i
+            'youkuplayer': {
+                'player0': refD + 'player.swf',
+                'player1': refD + 'oplayer.swf',
+                're': /http:\/\/static\.youku\.com(\/v[\d\.]*)?\/v\/swf\/q?player[^\.]*\.swf/i
             },
             'ku6': {
                 'player': refD + 'ku6.swf',
-                're': /http:\/\/player\.ku6cdn\.com\/default\/common\/player\/\d{12}\/player\.swf/i
+                're': /http:\/\/player\.ku6cdn\.com\/default\/.*\/(v|player)\.swf/i
             },
             'ku6_out': {
                 'player': refD + 'ku6_out.swf',
@@ -106,6 +108,7 @@
         },
         os: Cc['@mozilla.org/observer-service;1']
                 .getService(Ci.nsIObserverService),
+		ios: Components.classes["@mozilla.org/network/io-service;1"].getService(Components.interfaces.nsIIOService),
         init: function() {
             var site = this.SITES['iqiyi'];
             site['preHandle'] = function(aSubject) {
@@ -135,12 +138,85 @@
 
                 for(var i = 0; i < site['cond'].length; i++) {
                     if(site['player' + i] == site['player']) {
-                        site['storageStream' + i] = site['storageStream'];
+                        site[' ' + i] = site['storageStream'];
                         site['count' + i] = site['count'];
                         break;
                     }
                 }
             };
+//add
+            var site1 = this.SITES['youkuloader'];
+            site1['preHandle'] = function(aSubject) {
+                var wnd = this.getWindowForRequest(aSubject);
+                if(wnd) {
+                    //ADD
+                    site1['cond'] = [
+                        !this.flagDeterminer(wnd),
+                        true
+                    ];
+                    //console.log(site1);
+                    if(!site1['cond']) return;
+                    
+                    for(var i = 0; i < site1['cond'].length; i++) {
+                        if(site1['cond'][i]) {
+                            if(site1['player'] != site1['player' + i]) {
+                                site1['player'] = site1['player' + i];
+                                site1['storageStream'] = site1['storageStream' + i] ? site1['storageStream' + i] : null;
+                                site1['count'] = site1['count' + i] ? site1['count' + i] : null;
+                            }
+                            break;
+                        }
+                    }
+                }
+            };
+            site1['callback'] = function() {
+                if(!site1['cond']) return;
+
+                for(var i = 0; i < site1['cond'].length; i++) {
+                    if(site1['player' + i] == site1['player']) {
+                        site1[' ' + i] = site1['storageStream'];
+                        site1['count' + i] = site1['count'];
+                        break;
+                    }
+                }
+            };
+
+            var site2 = this.SITES['youkuplayer'];
+            site2['preHandle'] = function(aSubject) {
+                var wnd = this.getWindowForRequest(aSubject);
+                if(wnd) {
+                    //ADD
+                    site2['cond'] = [
+                        !this.flagDeterminer(wnd),
+                        true
+                    ];
+                    //console.log(site2);
+                    if(!site2['cond']) return;
+                    
+                    for(var i = 0; i < site2['cond'].length; i++) {
+                        if(site2['cond'][i]) {
+                            if(site2['player'] != site2['player' + i]) {
+                                site2['player'] = site2['player' + i];
+                                site2['storageStream'] = site2['storageStream' + i] ? site2['storageStream' + i] : null;
+                                site2['count'] = site2['count' + i] ? site2['count' + i] : null;
+                            }
+                            break;
+                        }
+                    }
+                }
+            };
+            site2['callback'] = function() {
+                if(!site2['cond']) return;
+
+                for(var i = 0; i < site2['cond'].length; i++) {
+                    if(site2['player' + i] == site2['player']) {
+                        site2[' ' + i] = site2['storageStream'];
+                        site2['count' + i] = site2['count'];
+                        break;
+                    }
+                }
+            };
+//
         },
         // getPlayer, get modified player
         getPlayer: function(site, callback) {
@@ -185,22 +261,47 @@
         },
         observe: function(aSubject, aTopic, aData) {
 
-			if (aTopic == "http-on-modify-request") {
-				var httpChannel = aSubject.QueryInterface(Ci.nsIHttpChannel);
-				for(var i in this.REFRULES) {
-					var rule = this.REFRULES[i];
-					try {
-						var URL = httpChannel.originalURI.spec;
-						if(rule['find'].test(URL)) {
-							httpChannel.referrer = Components.classes["@mozilla.org/network/io-service;1"].getService(Components.interfaces.nsIIOService).newURI(rule['re'], null, null);
-							httpChannel.setRequestHeader('Referer', rule['re'], false);
-						}
-					}
-					catch(e) {}
-				}
-				return;
-			}
-
+            if (aTopic == "http-on-modify-request") {
+            //if (aTopic == "http-on-opening-request") {
+//Headers Modifier
+                var httpChannel = aSubject.QueryInterface(Ci.nsIHttpChannel);
+                for(var i in this.REFRULES) {
+                    var rule = this.REFRULES[i];
+                    try {
+                        var URI = httpChannel.originalURI.spec;
+                        if(rule['find'].test(URI)) {
+                            if(rule['re'] != "")
+                            {
+                                httpChannel.referrer = this.ios.newURI(rule['re'], null, null);
+                            }
+                            httpChannel.setRequestHeader('Referer', rule['re'], false);
+                        }
+                    }
+                    catch(e) {
+                        alert(e);
+                    }
+                }
+//Redirector
+                for(var i in this.REDIRRULES) {
+                    var rule = this.REDIRRULES[i];
+                    try {
+                        var oriURI = httpChannel.originalURI.spec;
+                        var URI = httpChannel.URI.spec;
+                        if(rule['find'].test(oriURI) && rule['find'].test(URI)) {  //prevent from loop
+                            console.log(URI);
+                            if(rule['re'] != "")
+                            {
+                                httpChannel.redirectTo(this.ios.newURI(oriURI.replace(rule['find'],rule['re']), null, null));
+                            }
+                        }
+                    }
+                    catch(e) {
+                        alert(e);
+                    }
+                }
+                return;
+            }
+//Content Replacer
             if(aTopic != 'http-on-examine-response') return;
 
             var http = aSubject.QueryInterface(Ci.nsIHttpChannel);
@@ -225,6 +326,7 @@
                     aSubject.QueryInterface(Ci.nsITraceableChannel);
                     newListener.originalListener = aSubject.setNewListener(newListener);
                     newListener.site = site;
+                    newListener.aSubject = aSubject;
 
                     break;
                 }
@@ -236,21 +338,44 @@
 
             return Cr.NS_ERROR_NO_INTERFACE;
         },
+        flagDeterminer: function(wnd) { //flag for youku now
+            var adjflag = false;
+            var xhr = new XMLHttpRequest();
+            var infoUrl = "http://play.youku.com/play/get.json?vid="+ /id_(.*).html/i.exec(wnd.self.document.URL)[1] +"&ct=10&ran=" + parseInt(Math.random() * 9999);
+            //console.log(infoUrl);
+            xhr.open("GET", infoUrl, false);    //synchronous mode
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4) {  
+                    //console.log(xhr.responseText);
+                    adjflag = /"transfer_mode":"rtmp"/i.test(xhr.responseText);
+                }
+            }
+            xhr.send();
+            return adjflag;
+        },
         register: function() {
             this.init();
             this.os.addObserver(this, 'http-on-examine-response', false);
             this.os.addObserver(this, 'http-on-modify-request', false);
+            //this.os.addObserver(this, 'http-on-opening-request', false);
         },
         unregister: function() {
             this.os.removeObserver(this, 'http-on-examine-response', false);
             this.os.removeObserver(this, 'http-on-modify-request', false);
+            //this.os.removeObserver(this, 'http-on-opening-request', false);
         }
     };
+
+    function CCIN(cName, ifaceName) {
+        return Cc[cName].createInstance(Ci[ifaceName]);
+    }
 
     // TrackingListener, redirect youku player to modified player
     function TrackingListener() {
         this.originalListener = null;
         this.site = null;
+        this.aSubject = null;
+        this.originalData = null;
     }
     TrackingListener.prototype = {
         onStartRequest: function(request, context) {
@@ -259,8 +384,9 @@
         onStopRequest: function(request, context) {
             this.originalListener.onStopRequest(request, context, Cr.NS_OK);
         },
-        onDataAvailable: function(request, context) {
-            this.originalListener.onDataAvailable(request, context, this.site['storageStream'].newInputStream(0), 0, this.site['count']);
+//Modify in-fight
+        onDataAvailable: function(request, context, inputStream, offset, count) {
+            this.originalListener.onDataAvailable(request, context, this.site['storageStream'].newInputStream(0), 0, this.site['count']);//Replace the original chain to change the dest-File
         }
     };
 
