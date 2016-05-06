@@ -65,7 +65,7 @@
             },
             'letv_live': {
                 'player': refD + 'letv.in.Live.swf',
-                're': /http\:\/\/player\.letvcdn\.com\/.*p\/\d+\/\d+\/\d+\/\d+\/\d+\/newplayer\/LivePlayer\.swf/i
+                're': /http:\/\/.*letv.*\.com\/.*\/VLetvPlayer\.swf/i
             },
             'pptv': {
                 'player': refD + 'pptv.swf',
