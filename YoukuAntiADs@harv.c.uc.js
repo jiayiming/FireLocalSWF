@@ -82,28 +82,16 @@
             'pps': {
                 'player': refD + 'iqiyi.swf',
                 're': /https?:\/\/www\.iqiyi\.com\/common\/.*\/pps[\w]+.swf/i
-            },
-            '17173': {
-                'player': refD + '17173.in.player.swf',
-                're': /http:\/\/f\.v\.17173cdn\.com\/(\d+)\/flash\/Player_(file|seo_[^\.]+)\.swf/i
-            },
-            '17173_Live': {
-                'player': refD + '17173.in.Live.swf',
-                're': /http:\/\/f\.v\.17173cdn\.com\/(\d+)\/flash\/(Player_stream|Player_stream_firstpage)\.swf/i
-            },
-            '17173_out': {
-                'player': refD + '17173.out.player.swf',
-                're': /http:\/\/f\.v\.17173cdn\.com\/(\d+)\/flash\/(Player_file_out|Player_file_customOut)\.swf/i
-            },
-            '17173_Live_out': {
-                'player': refD + '17173.out.Live.swf',
-                're': /http:\/\/f\.v\.17173cdn\.com\/(\d+)\/flash\/Player_stream_customOut\.swf/i
             }
         },
         REFRULES: {
             'iqiyi': {
                 're': 'http://www.iqiyi.com/',
                 'find': /.*\.qiyi\.com/i
+            },
+            'youku': {
+                're': 'http://www.youku.com/',
+                'find': /http:\/\/.*\.youku\.com/i
             }
         },
         os: Cc['@mozilla.org/observer-service;1']
