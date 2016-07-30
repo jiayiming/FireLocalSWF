@@ -328,17 +328,22 @@
         },
         flagDeterminer: function(wnd) { //flag for youku now
             var adjflag = false;
-            var xhr = new XMLHttpRequest();
-            var infoUrl = "http://play.youku.com/play/get.json?vid="+ /id_(.*).html/i.exec(wnd.self.document.URL)[1] +"&ct=10&ran=" + parseInt(Math.random() * 9999);
-            //console.log(infoUrl);
-            xhr.open("GET", infoUrl, false);    //synchronous mode
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState == 4) {  
-                    //console.log(xhr.responseText);
-                    adjflag = /"transfer_mode":"rtmp"/i.test(xhr.responseText);
+            var idObject = /id_(.*).html/i.exec(wnd.self.document.URL);
+            if (idObject != null)
+            {
+                var vid = idObject[1];
+                var xhr = new XMLHttpRequest();
+                var infoUrl = "http://play.youku.com/play/get.json?vid="+ vid +"&ct=10&ran=" + parseInt(Math.random() * 9999);
+                //console.log(infoUrl);
+                xhr.open("GET", infoUrl, false);    //synchronous mode
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState == 4) {
+                            //console.log(xhr.responseText);
+                            adjflag = /"transfer_mode":"rtmp"/i.test(xhr.responseText);
+                    }
                 }
+                xhr.send();
             }
-            xhr.send();
             return adjflag;
         },
         register: function() {
