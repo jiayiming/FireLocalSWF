@@ -77,7 +77,7 @@
             },
             'sohu_live': {
                 'player': refD + 'sohu_live.swf',
-                're': /http:\/\/(tv\.sohu\.com\/upload\/swf\/(p2p\/)?\d+|(\d+\.){3}\d+\/webplayer)\/Main\.swf/i
+                're': /http:\/\/(tv\.sohu\.com\/upload\/swf\/(p2p\/)?\d+|(\d+\.){3}\d+\/wp8player)\/Main\.swf/i
             },
             'pps': {
                 'player': refD + 'iqiyi.swf',
