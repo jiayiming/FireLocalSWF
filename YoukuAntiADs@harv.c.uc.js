@@ -15,7 +15,7 @@
     var refD = 'file:///' + Components.classes['@mozilla.org/file/directory_service;1'].getService(Components.interfaces.nsIProperties).get("ProfD", Components.interfaces.nsILocalFile).path + '/chrome/swf/';
     YoukuAntiADs.prototype = {
         SITES: {
-            'youkuloader': {
+ /*           'youkuloader': {
                 'player0': refD + 'loader.swf',
                 'player1': refD + 'oloader.swf',
                 're': /http:\/\/static\.youku\.com(\/v[\d\.]*)?\/v\/swf\/loaders?\.swf/i
@@ -24,6 +24,15 @@
                 'player0': refD + 'player.swf',
                 'player1': refD + 'oplayer.swf',
                 're': /http:\/\/static\.youku\.com(\/v[\d\.]*)?\/v\/swf\/q?player[^\.]*\.swf/i
+            },
+*/
+            'youku_loader': {
+                'player': refD + 'loader.swf',
+                're': /http:\/\/static\.youku\.com(\/v[\d\.]+)?\/v\/swf\/loaders?\.swf/i
+            },
+            'youku_player': {
+                'player': refD + 'player.swf',
+                're': /http:\/\/static\.youku\.com(\/v[\d\.]+)?\/v\/swf\/q?player[^\.]*\.swf/i
             },
             'ku6': {
                 'player': refD + 'ku6.swf',
@@ -133,6 +142,7 @@
                 }
             };
 //add
+/*
             var site1 = this.SITES['youkuloader'];
             site1['preHandle'] = function(aSubject) {
                 var wnd = this.getWindowForRequest(aSubject);
@@ -204,6 +214,7 @@
                     }
                 }
             };
+*/
 //
         },
         // getPlayer, get modified player
@@ -326,7 +337,7 @@
 
             return Cr.NS_ERROR_NO_INTERFACE;
         },
-        flagDeterminer: function(wnd) { //flag for youku now
+ /*       flagDeterminer: function(wnd) { //flag for youku now
             var adjflag = false;
             var idObject = /id_(.*).html/i.exec(wnd.self.document.URL);
             if (idObject != null)
@@ -346,6 +357,7 @@
             }
             return adjflag;
         },
+*/
         register: function() {
             this.init();
             this.os.addObserver(this, 'http-on-examine-response', false);
