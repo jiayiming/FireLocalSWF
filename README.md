@@ -1,5 +1,11 @@
 FireLoaclSWF
 ============
+2016.11.19
+优酷播放器底部问题可以临时用css修正下
+@-moz-document domain("v.youku.com"){
+    .danmuoff .vpactionv5_iframe_wrap {top: auto !important;}
+    .play_area{margin-bottom: 70px !important;}
+}
 
 <font color=red>注意！！！：已放弃打包所有播放器成swf.rar的方式更新，方便单独更新。</font>
 
