@@ -28,11 +28,11 @@
 */
             'youku_loader': {
                 'player': refD + 'loader.swf',
-                're': /http:\/\/static\.youku\.com(\/v[\d\.]+)?\/v\/swf\/loaders?\.swf/i
+                're': /http:\/\/static\.youku\.com(\/v[\d\.]*)?\/v\/.*\/loaders?\.swf/i
             },
             'youku_player': {
                 'player': refD + 'player.swf',
-                're': /http:\/\/static\.youku\.com(\/v[\d\.]+)?\/v\/swf\/q?player[^\.]*\.swf/i
+                're': /http:\/\/static\.youku\.com(\/v[\d\.]*)?\/v\/.*\/q?player.*\.swf/i
             },
             'ku6': {
                 'player': refD + 'ku6.swf',
@@ -101,7 +101,11 @@
             'youku': {
                 're': 'http://www.youku.com/',
                 'find': /http:\/\/.*\.youku\.com/i
-            }
+            },
+            'tucao': {
+                're': 'http://www.tudou.com/',
+                'find': /vr\.tudou\.com/i
+			}
         },
         os: Cc['@mozilla.org/observer-service;1']
                 .getService(Ci.nsIObserverService),
