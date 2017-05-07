@@ -15,17 +15,6 @@
     var refD = 'file:///' + Components.classes['@mozilla.org/file/directory_service;1'].getService(Components.interfaces.nsIProperties).get("ProfD", Components.interfaces.nsILocalFile).path + '/chrome/swf/';
     YoukuAntiADs.prototype = {
         SITES: {
- /*           'youkuloader': {
-                'player0': refD + 'loader.swf',
-                'player1': refD + 'oloader.swf',
-                're': /http:\/\/static\.youku\.com(\/v[\d\.]*)?\/v\/swf\/loaders?\.swf/i
-            },
-            'youkuplayer': {
-                'player0': refD + 'player.swf',
-                'player1': refD + 'oplayer.swf',
-                're': /http:\/\/static\.youku\.com(\/v[\d\.]*)?\/v\/swf\/q?player[^\.]*\.swf/i
-            },
-*/
             'youku_loader': {
                 'player': refD + 'loader.swf',
                 're': /http:\/\/static\.youku\.com(\/v[\d\.]*)?\/v\/.*\/loaders?\.swf/i
@@ -64,17 +53,9 @@
                 'player': refD + 'sp.swf',
                 're': /http:\/\/js\.tudouui\.com\/.*\/socialplayer[^\.]*\.swf/i
             },
-            'letv': {
-                'player': refD + 'letv.swf',
-                're': /http:\/\/.*\.letv(cdn)?\.com\/.*(new)?player\/((SDK)?Letv|swf)Player\.swf/i
-            },
-            'letvpccs': {
-                'player': 'http://www.le.com/cmsdata/playerapi/pccs_sdk_20141113.xml',
-                're': /http:\/\/www\.le(tv)?\.com\/.*\/playerapi\/pccs_(?!(.*live|sdk)).*_?(\d+)\.xml/i
-            },
-            'letv_live': {
-                'player': refD + 'letv.in.Live.swf',
-                're': /http:\/\/.*letv.*\.com\/.*\/VLetvPlayer\.swf/i
+            'letvsdk': {
+                'player': refD + 'letvsdk.swf',
+                're': /http:\/\/player\.letvcdn\.com\/.*\/newplayer\/LetvPlayerSDK\.swf/i
             },
             'pptv': {
                 'player': refD + 'pptv.swf',
