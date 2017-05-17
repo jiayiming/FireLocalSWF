@@ -17,11 +17,11 @@
         SITES: {
             'youku_loader': {
                 'player': refD + 'loader.swf',
-                're': /http:\/\/static\.youku\.com(\/v[\d\.]*)?\/v\/.*\/loaders?\.swf/i
+                're': /http:\/\/static\.youku\.com(\/v[\d\.]*)?\/v\/swf\/.*\/loaders?\.swf/i
             },
             'youku_player': {
                 'player': refD + 'player.swf',
-                're': /http:\/\/static\.youku\.com(\/v[\d\.]*)?\/v\/.*\/q?player.*\.swf/i
+                're': /http:\/\/static\.youku\.com(\/v[\d\.]*)?\/v\/swf\/.*\/q?player.*\.swf/i
             },
             'ku6': {
                 'player': refD + 'ku6.swf',
@@ -43,16 +43,16 @@
             },
             'tudou': {
                 'player': refD + 'tudou.swf',
-                're': /http:\/\/js\.tudouui\.com\/.*portalplayer[^\.]*\.swf/i
+                're': /http:\/\/static\.youku\.com(\/v[\d\.]*)?\/v\/custom\/.*\/q?player.*\.swf/i
             },
-            'tudou_olc': {
+/*            'tudou_olc': {
                 'player': refD + 'olc_8.swf',
                 're': /http:\/\/js\.tudouui\.com\/.*olc[^\.]*\.swf/i
             },
             'tudou_sp': {
                 'player': refD + 'sp.swf',
                 're': /http:\/\/js\.tudouui\.com\/.*\/socialplayer[^\.]*\.swf/i
-            },
+            },*/
             'letvsdk': {
                 'player': refD + 'letvsdk.swf',
                 're': /http:\/\/player\.letvcdn\.com\/.*\/newplayer\/LetvPlayerSDK\.swf/i
