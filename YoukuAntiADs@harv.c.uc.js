@@ -40,7 +40,7 @@
 			},
 			'sohu_live': {
 				'target': 'sohu_live.swf',
-				'find': /http:\/\/(tv\.sohu\.com\/upload\/swf\/(p2p\/)?\d+|(\d+\.){3}\d+\/wp8player)\/Main\.swf/i
+				'find': /https?:\/\/(tv\.sohu\.com\/upload\/swf\/(p2p\/)?\d+|(\d+\.){3}\d+\/wp8player)\/Main\.swf/i
 			},
 			'pptv': {
 				'target': 'pptv.swf',
