@@ -14,13 +14,13 @@
 	var swfNode = Services.dirsvc.get('UChrm', Ci.nsILocalFile); swfNode.appendRelativePath("swf");
 	YoukuAntiADs.prototype = {
 		SITES: {
-			'youku_loader': {
+/*			'youku_loader': {
 				'target': 'loader.swf',
 				'find': /http:\/\/static\.youku\.com(\/v[\d\.]*)?\/v\/.*\/loaders?\.swf/i
-			},
+			},*/
 			'youku_player': {
 				'target': 'player.swf',
-				'find': /http:\/\/static\.youku\.com(\/v[\d\.]*)?\/v\/swf\/.*\/q?player.*\.swf/i
+				'find': /http:\/\/static\.youku\.com(\/v[\d\.]*)?\/v\/swf\/(.*\/)?q?player.*\.swf/i
 			},
 			'tudou': {
 				'target': 'tudou.swf',
