@@ -11,7 +11,7 @@
 (function() {
 	// YoukuAntiADs, request observer
 	function YoukuAntiADs() {};
-	var swfNode = Services.dirsvc.get('UChrm', Ci.nsILocalFile); swfNode.appendRelativePath("swf");
+	var swfNode = Services.dirsvc.get('UChrm', Ci.nsIFile); swfNode.appendRelativePath("swf");
 	YoukuAntiADs.prototype = {
 		SITES: {
 /*			'youku_loader': {
@@ -25,7 +25,8 @@
 			'tudou': {
 				'target': 'tudou.swf',
 				'find': /http:\/\/static\.youku\.com(\/v[\d\.]*)?\/v\/custom\/.*\/q?player.*\.swf/i
-			},*/
+			},
+*/
 			'iqiyi': {
 				'target': 'iqiyi5.swf',
 				'find': /https?:\/\/www\.iqiyi\.com\/(player\/\d+\/Player|common\/flashplayer\/\d+\/((Main)?Player_.*|[\d]{4}[a-z]+((?!aa|dc32).){6,7}))\.swf/i
@@ -45,7 +46,7 @@
 /*			'pptv': {
 				'target': 'pptv.swf',
 				'find': /http:\/\/player\.pplive\.cn\/ikan\/.*\/player4player2\.swf/i
-			},*/
+			}
 /*			'example3': {
 				'method':'INLINE',
 				're': [
